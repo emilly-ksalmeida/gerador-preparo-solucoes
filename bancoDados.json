@@ -1,0 +1,30 @@
+[
+    {
+      "id": 1,
+      "nome": "ácido clorídrico",
+      "peso": 36.46,
+      "densidade": 1.19,
+      "rotulado": 37
+    },
+    {
+      "id": 2,
+      "nome": "ácido sulfúrico",
+      "peso": 98.08,
+      "densidade": 1.83,
+      "rotulado": 98
+    },
+    {
+      "id": 3,
+      "nome": "ácido fosfórico",
+      "peso": 97.99,
+      "densidade": 1.88,
+      "rotulado": 85
+    },
+    {
+      "id": 4,
+      "nome": "ácido nítrico",
+      "peso": 63.01,
+      "densidade": 1.51,
+      "rotulado": 65
+    }
+  ]
