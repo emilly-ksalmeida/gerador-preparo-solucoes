@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Preparo de Soluções</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="#" type="image/x-icon" />
+  </head>
+  <body>
+    <header>
+      <h1>Gerador de Método de Preparo de Soluções</h1>
+    </header>
+    <main>
+      <section>
+        <h2>Título</h2>
+
+        <form action="#" method="post">
+          <p>
+            <label for="composto">Composto: </label>
+
+            <select name="composto" id="composto" required>
+              <option value="" selected>---Escolha---</option>
+
+              <optgroup label="Ácido inorgânicos">
+                <option value="ácido clorídrico">ácido clorídrico</option>
+                <option value="ácido nítrico">ácido nítrico</option>
+                <option value="ácido sulfúrico">ácido sulfúrico</option>
+                <option value="ácido fosfórico">ácido fosfórico</option>
+              </optgroup>
+            </select>
+          </p>
+          <p>
+            <label for="concentracao">Concentração molar desejada (mol/L): </label>
+            <input type="number" name="iconcentracao" id="concentracao" required min="0" max="1000" step="0.010"/>
+          </p>
+          <p>
+            <label for="volumeTotal">Volume total (mL): </label>
+            <input type="number" name="ivolumeTotal" id="volumeTotal" required/>
+          </p>
+          <p>
+
+            <input type="button" value="Calcular" onclick="calcular()">
+            <input type="reset" value="Limpar">
+            <input type="button" value="Imprimir">
+         
+          </p>
+        </form>
+      </section>
+      <section id="espacoResultado"></section>
+    </main>
+    <footer>
+      <p>
+        Este é um projeto para estudo de JavaScript realizado por
+        <strong>EmillyK</strong>
+      </p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
