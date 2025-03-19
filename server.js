@@ -1,6 +1,7 @@
 import express from "express";
 import {conectarAoBanco} from "./dbconfig.js";
 import 'dotenv/config';
+import cors from "cors";
 
 const conexao = await conectarAoBanco(process.env.STRING_CONEXAO);
 const app = express();
@@ -30,6 +31,8 @@ async function postarNovoPost (req, res) {
         res.status(500).json({"Erro":"Falha na requisição"})
     }
 };
+
+app.use(cors());
 app.use(express.json()); //é necessário adicionar essa parte para que req possam ser passadas com body no formato de arquivo json
 
 app.post("/posts", postarNovoPost);
