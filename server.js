@@ -82,7 +82,7 @@ async function pesquisar(idPesquisa){
     const db = conexao.db("imersao-instabytes");
     const colecao = db.collection("posts");
     const objID = ObjectId.createFromHexString(idPesquisa);
-    return colecao.find({_id: new ObjectId(objID)});
+    return colecao.findOne({_id: new ObjectId(objID)});
   
 }
 
