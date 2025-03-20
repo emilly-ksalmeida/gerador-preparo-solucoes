@@ -2,6 +2,7 @@ import express from "express";
 import {conectarAoBanco} from "./dbconfig.js";
 import 'dotenv/config';
 import cors from "cors";
+import { ObjectId } from "mongodb";
 
 const conexao = await conectarAoBanco(process.env.STRING_CONEXAO);
 const app = express();
@@ -66,7 +67,7 @@ app.get("/posts", async (req, res) => {
     res.status(200).json(posts);
 });
 
-app.put()
+app.put("/upload/:idPesquisa", atualizarNovoPost);
 
 app.listen(3000, () => {
     console.log("Servidor escutando...");
