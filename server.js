@@ -41,7 +41,15 @@ async function atualizarPost(idPesquisa, conteudoParaAtualizar) {
     return colecao.updateOne({_id: new ObjectId(objID)}, {$set:conteudoParaAtualizar});
 };
 
-export async function atualizarNovoPost (req, res) {
+async function deletar(idPesquisa) {
+    const db = conexao.db("imersao-instabytes");
+    const colecao = db.collection("posts");
+    
+    const objID = ObjectId.createFromHexString(idPesquisa);
+    return colecao.deleteOne({_id: new ObjectId(objID)});
+};
+
+async function atualizarNovoPost (req, res) {
     //Como o id vai ser passado na rota, deve usar params. Esse id usado deve ser o insertedId que o mongoDB cria.
     
         const idPesquisa = req.params.idPesquisa;
@@ -56,10 +64,21 @@ export async function atualizarNovoPost (req, res) {
         }
     };
 
+async function deletarPost(req, res) {
+    const idPesquisa = req.params.idPesquisa;
+
+    try{
+        const deletando = await deletar(idPesquisa);
+        res.status(200).json(deletando);
+        
+    } catch(erro){
+        console.error(erro.message);
+            res.status(500).json({"Erro":"Falha na requisição"})
+    }
+}
+
 app.use(cors());//utilizando desta forma, o servidor irá aceitar requisições de API de qualquer origem.
 app.use(express.json()); //é necessário adicionar essa parte para que req possam ser passadas com body no formato de arquivo json
-
-app.post("/posts", postarNovoPost);
 
 //Esta rota retorna todos os posts
 app.get("/posts", async (req, res) => {
@@ -67,7 +86,11 @@ app.get("/posts", async (req, res) => {
     res.status(200).json(posts);
 });
 
+app.post("/posts", postarNovoPost);
+
 app.put("/upload/:idPesquisa", atualizarNovoPost);
+
+app.delete("/delete-dado/:idPesquisa", deletarPost);
 
 app.listen(3000, () => {
     console.log("Servidor escutando...");
