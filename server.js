@@ -12,6 +12,8 @@ async function getTodosPosts() {
     const colecao = db.collection("posts");
     return colecao.find().toArray();
 }
+
+
 async function criarPost(novoPost) {
 
     const db = conexao.db("imersao-instabytes");
@@ -70,8 +72,27 @@ async function deletarPost(req, res) {
     try{
         const deletando = await deletar(idPesquisa);
         res.status(200).json(deletando);
-        
+
     } catch(erro){
+        console.error(erro.message);
+            res.status(500).json({"Erro":"Falha na requisição"})
+    }
+}
+async function pesquisar(idPesquisa){
+    const db = conexao.db("imersao-instabytes");
+    const colecao = db.collection("posts");
+    const objID = ObjectId.createFromHexString(idPesquisa);
+    return colecao.find({_id: new ObjectId(objID)});
+  
+}
+
+async function pesquisaPorId(req, res) {
+    const idPesquisa = req.params.idPesquisa;
+    try {
+        const itemPesquisado = await pesquisar(idPesquisa);
+        res.status(200).json(itemPesquisado);
+        
+    }catch(erro){
         console.error(erro.message);
             res.status(500).json({"Erro":"Falha na requisição"})
     }
@@ -85,6 +106,8 @@ app.get("/posts", async (req, res) => {
     const posts = await getTodosPosts();
     res.status(200).json(posts);
 });
+
+app.get("/1post/:idPesquisa", pesquisaPorId);
 
 app.post("/posts", postarNovoPost);
 
