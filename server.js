@@ -1,5 +1,5 @@
 import express from "express";
-import {conectarAoBanco} from "./dbconfig.js";
+import {conectarAoBanco} from "./src/config/dbconfig.js";
 import 'dotenv/config';
 import cors from "cors";
 import { ObjectId } from "mongodb";
