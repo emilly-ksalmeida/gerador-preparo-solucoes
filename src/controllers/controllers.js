@@ -1,3 +1,5 @@
+import {criarPost, atualizarPost, deletar, pesquisar} from "../models/models.js";
+
 export async function postarNovoPost (req, res) {
     //o conteudo da requisição fica dentro da parte body
     const novoPost = req.body;
