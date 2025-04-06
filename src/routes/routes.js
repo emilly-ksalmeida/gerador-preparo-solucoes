@@ -10,6 +10,9 @@ const routes = (app) => {
     app.get("/home", (req, res) =>{
         res.render("index");
     });
+    app.get("/pagina-calc", (req, res) =>{
+        res.render("paginacalc");
+    });
 
     app.get("/posts", async (req, res) => {
         const posts = await getTodosPosts();
