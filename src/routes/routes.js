@@ -10,7 +10,7 @@ const routes = (app) => {
     app.get("/home", (req, res) =>{
         res.render("index");
     });
-    app.get("/pagina-calc", (req, res) =>{
+    app.get("/paginaCalc", (req, res) =>{
         res.render("paginacalc");
     });
 
