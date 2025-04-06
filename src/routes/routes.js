@@ -8,7 +8,7 @@ const routes = (app) => {
     app.use(express.json()); //é necessário adicionar essa parte para que req possam ser passadas com body no formato de arquivo json
 
     app.get("/home", (req, res) =>{
-        res.render(index);
+        res.render("index");
     });
 
     app.get("/posts", async (req, res) => {
