@@ -1,5 +1,6 @@
 import express from "express";
 import routes from "./src/routes/routes.js";
+import path from "path";
 
 const app = express();
 app.set("views", path.resolve(__dirname, "src", "views"));// Define a pasta onde estão os arquivos de visualização (templates)
