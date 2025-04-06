@@ -18,14 +18,15 @@ let conteudo = [];
 async function listarCompostos(){
   
   try {
-   const listaDeDados = "bancoDados.json";
-   const response = await fetch(listaDeDados);
+   //const listaDeDados = "bancoDados.json";
+
+   const response = await fetch("http://localhost:3000/posts");
  
    if(response.status !==200) throw new Error("ocorreu um erro");
  
    conteudoTotal = await response.json();
    
-   //console.log(conteudoTotal);
+   console.log(conteudoTotal);
   } 
      catch(erro){
          alert(erro);
