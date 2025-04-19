@@ -20,7 +20,7 @@ async function listarCompostos(){
   try {
    //const listaDeDados = "bancoDados.json";
 
-   const response = await fetch("http://localhost:3000/posts");
+   const response = await fetch("http://localhost:3000/posts"); //GET para a rota do servidor indicada, o fetch faz por padrão o GET quando não é especificado um método
  
    if(response.status !==200) throw new Error("ocorreu um erro");
  
