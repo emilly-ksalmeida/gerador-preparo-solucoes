@@ -22,6 +22,11 @@ const routes = (app) => {
     app.get("/1post/:idPesquisa", pesquisaPorId);
     
     app.post("/posts", postarNovoPost);
+
+    app.post("/rota-teste-form", (req, res)=> {
+        console.log(req.body);
+        res.send("Formulário recebido");
+    })
     
     app.put("/upload/:idPesquisa", atualizarNovoPost);
     
