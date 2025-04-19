@@ -13,6 +13,7 @@
       <h1>Gerador de Método de Preparo de Soluções</h1>
     </header>
     <main>
+<!--Espaço para o formulário principal que irá conter as informações para gerar o método-->
       <section>
         <h2>Título</h2>
 
@@ -48,7 +49,32 @@
           </p>
         </form>
       </section>
-      <section id="espacoResultado"></section>
+<!-- Espaço para o resultado do método de preparo-->
+      <section id="espacoResultado">
+
+      </section>
+<!-- Espaço para o formulário de criar, atualizar e deletar dados de compostos-->
+      <section>
+        <form action="#" method="post">
+          <p>
+            <label for="nome-composto">nome: </label>
+            <input type="text" name="nome-composto">
+          </p>
+          <p>
+          <label for="peso-composto">peso: </label>
+          <input type="number" name="peso-composto">
+          </p>
+          <p>
+            <label for="densidade-composto">densidade: </label>
+            <input type="text" name="densidade-composto">
+          </p>
+          <p>
+            <label for="rotulado-composto">rotulado: </label>
+            <input type="text" name="rotulado-composto">
+          </p>
+          <input type="submit" value="Criar">
+      </form>
+      </section>
     </main>
     <footer>
       <p>
