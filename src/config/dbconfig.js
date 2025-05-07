@@ -5,6 +5,7 @@ export async function conectarAoBanco(stringConexao) {
     let mongoClient;
 
     try {
+        console.log(stringConexao)
         mongoClient = new MongoClient(stringConexao);
         
         console.log('Conectando ao cluster do banco de dados...');
