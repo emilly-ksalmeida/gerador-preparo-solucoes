@@ -7,7 +7,7 @@ async function enviarAtualizacao(dados) {
         "Content-Type": "application/json",
     };
 
-    const linkParaAtualizacao = `http://localhost:3000/atualizar/${identificador}`;
+    const linkParaAtualizacao = `http://localhost:3000/upload/${identificador}`;
     const initPut = {       
         method: "PUT",
         headers: headers,
@@ -31,7 +31,7 @@ async function apagarDadoInformado(){
         "Content-Type": "application/json",
     };
 
-    const linkParaApagar = `http://localhost:3000/apagar/${identificador}`;
+    const linkParaApagar = `http://localhost:3000/delete-dado/${identificador}`;
     const initDelete = {       
         method: "DELETE",
         headers: headers
@@ -49,7 +49,7 @@ async function apagarDadoInformado(){
     }
 };
 
-document.getElementById("formulario-atualizar").addEventListener("submit", async function(evento) {
+document.getElementById("form-atualizar").addEventListener("submit", async function(evento) {
    
     evento.preventDefault(); // Impede o envio do formulário
   
@@ -59,7 +59,7 @@ document.getElementById("formulario-atualizar").addEventListener("submit", async
     console.log(dadosEnviados);
   });
 
-  document.getElementById("formulario-apagar").addEventListener("submit", async function(evento) {
+  document.getElementById("form-deletar").addEventListener("submit", async function(evento) {
    
     evento.preventDefault(); // Impede o envio do formulário
     const dadosEnviados = await apagarDadoInformado();
