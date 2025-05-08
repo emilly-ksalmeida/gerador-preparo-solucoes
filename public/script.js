@@ -25,8 +25,6 @@ async function listarCompostos(){
    if(response.status !==200) throw new Error("ocorreu um erro");
  
    conteudoTotal = await response.json();
-   
-   console.log(conteudoTotal);
   } 
      catch(erro){
          alert(erro);
