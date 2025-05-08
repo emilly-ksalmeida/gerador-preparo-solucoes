@@ -18,20 +18,16 @@ export async function criarPost(novoPost) {
     return colecao.insertOne(novoPost);
 };
 
-export async function atualizarPost(idPesquisa, conteudoParaAtualizar) {
+export async function atualizarPost(identificador, atualizacao) {
     const db = conexao.db("imersao-instabytes");
     const colecao = db.collection("posts");
-    //PAra passar o id do post, o mongoDB define que seja da seguinte forma:
-    const objID = ObjectId.createFromHexString(idPesquisa);
-    return colecao.updateOne({_id: new ObjectId(objID)}, {$set:conteudoParaAtualizar});
+    return colecao.updateOne({nome: identificador}, {$set: atualizacao});
 };
 
-export async function deletar(idPesquisa) {
+export async function deletar(identificador) {
     const db = conexao.db("imersao-instabytes");
     const colecao = db.collection("posts");
-    
-    const objID = ObjectId.createFromHexString(idPesquisa);
-    return colecao.deleteOne({_id: new ObjectId(objID)});
+    return colecao.deleteOne({nome: identificador});
 };
 
 export async function pesquisar(idPesquisa){
