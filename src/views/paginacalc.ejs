@@ -13,10 +13,10 @@
       <h1>Gerador de Método de Preparo de Soluções</h1>
     </header>
     <main>
-      <section>
-        <h2>Título</h2>
+      <section id="espaco-calculo">
+        <h2>Formulário para realizar cálculos</h2>
 
-        <form action="#" method="post">
+        <form id="form-calculo">
           <p>
             <label for="composto">Composto: </label>
 
@@ -48,29 +48,70 @@
           </p>
         </form>
       </section>
-      <section id="espacoResultado"></section>
-      <!-- Espaço para o formulário de criar, atualizar e deletar dados de compostos-->
-      <section>
-        <form action="/rota-teste-form" method="post">
+      <section id="espacoResultado">
+
+      </section>
+      <!-- Espaço para o formulário de criar novo composto-->
+      <section id="espaco-criar">
+        <h2>Formulário para cadastrar um novo composto</h2>
+        <p>Novo composto a ser cadastrado no banco</p>
+        <form action="/rota-teste-form" method="POST">
           <p>
             <label for="nome">nome: </label>
-            <input type="text" name="nome">
+            <input type="text" name="nome" required maxlength="50">
           </p>
           <p>
           <label for="peso">peso: </label>
-          <input type="number" name="peso">
+          <input type="number" name="peso" required min="0" max="1000" step="0.010">
           </p>
           <p>
             <label for="densidade">densidade: </label>
-            <input type="number" name="densidade">
+            <input type="number" name="densidade" required min="0" max="10" step="0.010">
           </p>
           <p>
             <label for="rotulado">rotulado: </label>
-            <input type="number" name="rotulado">
+            <input type="number" name="rotulado" required min="0" max="110" step="0.010">
           </p>
           <input type="submit" value="Criar">
       </form>
       </section>
+      <!-- Espaço para o formulário de atualizar um composto-->
+      <section id="espaco-atualizar">
+        <h2>Formulário para atualizar dados de um composto</h2>
+        <form id="form-atualizar">
+          <p>Composto a ser atualizado</p>
+          <p>
+            <label for="nome">nome: </label>
+            <input type="text" name="nome" required>
+          </p>
+          <p>
+          <label for="peso">peso: </label>
+          <input type="number" name="peso" required>
+          </p>
+          <p>
+            <label for="densidade">densidade: </label>
+            <input type="number" name="densidade" required>
+          </p>
+          <p>
+            <label for="rotulado">rotulado: </label>
+            <input type="number" name="rotulado" required>
+          </p>
+          <input type="submit" value="Atualizar">
+      </form>
+      </section>
+ <!-- Espaço para o formulário apagar um composto do banco de dados-->
+ <section id="espaco-deletar">
+  <h2>Formulário para apagar os dados de um composto</h2>
+  <form id="form-deletar">
+    <p>Composto a ser apagado do banco</p>
+    <p>
+      <label for="nome">nome: </label>
+      <input type="text" name="nome" required>
+    </p>
+    <input type="submit" value="Apagar">
+</form>
+</section>
+
     </main>
     <footer>
       <p>
