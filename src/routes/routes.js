@@ -23,13 +23,7 @@ const routes = (app) => {
     app.get("/1post/:idPesquisa", pesquisaPorId);
     
     app.post("/posts", postarNovoPost);
-
-    app.post("/rota-teste-form", (req, res)=> {
-        let respostaFormulario = req.body;
-        console.log(respostaFormulario);
-        res.send(respostaFormulario);
-    })
-    
+ 
     app.put("/upload/:idPesquisa", atualizarNovoPost);
     
     app.delete("/delete-dado/:idPesquisa", deletarPost);
